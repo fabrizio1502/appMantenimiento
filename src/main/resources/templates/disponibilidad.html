@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="contenedor">
+       <header>
+        <div class="container">
+        <img src="img/largo.jpg" alt="Descripción de la imagen" style="width: 100%; height: 120px; display: block; margin: 0 auto;" />
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Inicio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cargarLibro">Mantenimiento Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cargarPrestamo">Mantenimiento Prestamos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cargarEditorial">Mantenimiento Editoriales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reporteDispo">Disponibilidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1>Libros disponibles online</h1>
+            <form action="/reporteDispo" method="post" th:object="${libro}">
+                <button th:text="${boton}" type="submit" class="btn btn-primary">Disponibles</button>
+                <a href="/" class="btn btn-primary">Volver</a>
+            </form>
+            <div th:class="${clase}" role="alert" th:text="${mensaje}"></div>
+        </div>
+    </main>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
